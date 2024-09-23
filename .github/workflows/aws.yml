@@ -32,7 +32,7 @@ on:
 
 env:
   AWS_REGION: ap-south-1                   # set this to your preferred AWS region, e.g. us-west-1
-  ECR_REPOSITORY: gh-ecs           # set this to your Amazon ECR repository name
+  ECR_REPOSITORY: gh-ecs:latest           # set this to your Amazon ECR repository name
   ECS_SERVICE: gh-ecs                 # set this to your Amazon ECS service name
   ECS_CLUSTER: gh-ecs-actions                 # set this to your Amazon ECS cluster name
   ECS_TASK_DEFINITION: gh-ecs:1  # set this to the path to your Amazon ECS task definition
