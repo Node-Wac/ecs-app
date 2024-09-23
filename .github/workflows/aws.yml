@@ -1,4 +1,4 @@
-# This workflow will build and push a new container image to Amazon ECR,
+  # This workflow will build and push a new container image to Amazon ECR,
 # and then will deploy a new task definition to Amazon ECS, when there is a push to the "main" branch.
 #
 # To use this workflow, you will need to complete the following set-up steps:
@@ -32,7 +32,7 @@ on:
 
 env:
   AWS_REGION: ap-south-1                   # set this to your preferred AWS region, e.g. us-west-1
-  ECR_REPOSITORY: gh-ecs           # set this to your Amazon ECR repository name
+  ECR_REPOSITORY: gh-ecs      # set this to your Amazon ECR repository name
   ECS_SERVICE: gh-ecs                 # set this to your Amazon ECS service name
   ECS_CLUSTER: gh-ecs-actions                 # set this to your Amazon ECS cluster name
   ECS_TASK_DEFINITION: aws/ecs-revision.json  # set this to the path to your Amazon ECS task definition
