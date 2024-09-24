@@ -1,50 +1,52 @@
 {
-  "family": "gh-ecs",
-  "containerDefinitions": [
-    {
-      "name": "express-app",
-      "image": "public.ecr.aws/q6d2r2j0/gh-ecs:latest",
-      "cpu": 1024,
-      "memory": 1024,
-      "memoryReservation": 1024,
-      "portMappings": [
+    "family": "gh-ecs",
+    "containerDefinitions": [
         {
-          "name": "4000-http",
-          "containerPort": 4000,
-          "hostPort": 4000,
-          "protocol": "tcp",
-          "appProtocol": "http"
+            "name": "express-app",
+            "image": "167572213833.dkr.ecr.ap-south-1.amazonaws.com/gh-ecs-private:latest",
+            "cpu": 1024,
+            "memory": 1024,
+            "memoryReservation": 1024,
+            "portMappings": [
+                {
+                    "name": "4000-http",
+                    "containerPort": 4000,
+                    "hostPort": 4000,
+                    "protocol": "tcp",
+                    "appProtocol": "http"
+                }
+            ],
+            "essential": true,
+            "environment": [],
+            "environmentFiles": [],
+            "mountPoints": [],
+            "volumesFrom": [],
+            "ulimits": [],
+            "logConfiguration": {
+                "logDriver": "awslogs",
+                "options": {
+                    "awslogs-group": "/ecs/gh-ecs",
+                    "mode": "non-blocking",
+                    "awslogs-create-group": "true",
+                    "max-buffer-size": "25m",
+                    "awslogs-region": "ap-south-1",
+                    "awslogs-stream-prefix": "ecs"
+                },
+                "secretOptions": []
+            },
+            "systemControls": []
         }
-      ],
-      "essential": true,
-      "environment": [],
-      "environmentFiles": [],
-      "mountPoints": [],
-      "volumesFrom": [],
-      "ulimits": [],
-      "logConfiguration": {
-        "logDriver": "awslogs",
-        "options": {
-          "awslogs-group": "/ecs/gh-ecs",
-          "mode": "non-blocking",
-          "awslogs-create-group": "true",
-          "max-buffer-size": "25m",
-          "awslogs-region": "ap-south-1",
-          "awslogs-stream-prefix": "ecs"
-        },
-        "secretOptions": []
-      },
-      "systemControls": []
+    ],
+    "taskRoleArn": "arn:aws:iam::167572213833:role/ecsTaskExecutionRole",
+    "executionRoleArn": "arn:aws:iam::167572213833:role/ecsTaskExecutionRole",
+    "networkMode": "awsvpc",
+    "requiresCompatibilities": [
+        "FARGATE"
+    ],
+    "cpu": "1024",
+    "memory": "3072",
+    "runtimePlatform": {
+        "cpuArchitecture": "X86_64",
+        "operatingSystemFamily": "LINUX"
     }
-  ],
-  "taskRoleArn": "arn:aws:iam::167572213833:role/ecsTaskExecutionRole",
-  "executionRoleArn": "arn:aws:iam::167572213833:role/ecsTaskExecutionRole",
-  "networkMode": "awsvpc",
-  "requiresCompatibilities": ["FARGATE"],
-  "cpu": "1024",
-  "memory": "3072",
-  "runtimePlatform": {
-    "cpuArchitecture": "X86_64",
-    "operatingSystemFamily": "LINUX"
-  }
 }
